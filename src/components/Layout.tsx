@@ -39,7 +39,7 @@ const Layout = ({ children }: LayoutProps) => {
             <Link to="/" className="flex items-center space-x-2">
               <div className="w-8 h-8 bg-gradient-to-r from-laundry-blue to-laundry-blue-dark rounded-full"></div>
               <span className="text-xl font-bold text-foreground">
-                {getText('CleanCare Laundromat', 'Lavandería CleanCare')}
+                {getText('LaundroWell Garland', 'LaundroWell Garland')}
               </span>
             </Link>
 
@@ -130,13 +130,13 @@ const Layout = ({ children }: LayoutProps) => {
               <div className="flex items-center space-x-2 mb-4">
                 <div className="w-8 h-8 bg-gradient-to-r from-laundry-blue to-laundry-blue-dark rounded-full"></div>
                 <span className="text-xl font-bold text-foreground">
-                  {getText('CleanCare Laundromat', 'Lavandería CleanCare')}
+                  {getText('LaundroWell Garland', 'LaundroWell Garland')}
                 </span>
               </div>
               <p className="text-muted-foreground text-sm">
                 {getText(
-                  'Your trusted neighborhood laundromat providing clean, reliable service since 2020.',
-                  'Su lavandería de confianza del vecindario brindando servicio limpio y confiable desde 2020.'
+                  'Your trusted neighborhood laundromat in Garland, TX providing clean, reliable service with state-of-the-art equipment.',
+                  'Su lavandería de confianza del vecindario en Garland, TX brindando servicio limpio y confiable con equipos de última generación.'
                 )}
               </p>
             </div>
@@ -163,15 +163,14 @@ const Layout = ({ children }: LayoutProps) => {
                 {getText('Contact', 'Contacto')}
               </h3>
               <div className="text-sm text-muted-foreground space-y-2">
-                <p>(555) 123-WASH</p>
-                <p>info@cleancare.com</p>
-                <p>123 Clean Street<br />Laundry City, LC 12345</p>
+                <p>LaundroWell@hotmail.com</p>
+                <p>2006 W Buckingham Rd<br />Garland, TX 75042</p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 CleanCare Laundromat. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
+            <p>&copy; 2024 LaundroWell Garland. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
           </div>
         </div>
       </footer>

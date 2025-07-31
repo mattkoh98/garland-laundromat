@@ -11,13 +11,13 @@ const Location = () => {
   };
 
   const hours = [
-    { day: getText('Monday', 'Lunes'), hours: '6:00 AM - 10:00 PM' },
-    { day: getText('Tuesday', 'Martes'), hours: '6:00 AM - 10:00 PM' },
-    { day: getText('Wednesday', 'Miércoles'), hours: '6:00 AM - 10:00 PM' },
-    { day: getText('Thursday', 'Jueves'), hours: '6:00 AM - 10:00 PM' },
-    { day: getText('Friday', 'Viernes'), hours: '6:00 AM - 11:00 PM' },
+    { day: getText('Monday', 'Lunes'), hours: '7:00 AM - 11:00 PM' },
+    { day: getText('Tuesday', 'Martes'), hours: '7:00 AM - 11:00 PM' },
+    { day: getText('Wednesday', 'Miércoles'), hours: '7:00 AM - 11:00 PM' },
+    { day: getText('Thursday', 'Jueves'), hours: '7:00 AM - 11:00 PM' },
+    { day: getText('Friday', 'Viernes'), hours: '7:00 AM - 11:00 PM' },
     { day: getText('Saturday', 'Sábado'), hours: '7:00 AM - 11:00 PM' },
-    { day: getText('Sunday', 'Domingo'), hours: '7:00 AM - 9:00 PM' },
+    { day: getText('Sunday', 'Domingo'), hours: '7:00 AM - 11:00 PM' },
   ];
 
   return (
@@ -61,8 +61,8 @@ const Location = () => {
                       {getText('Address', 'Dirección')}
                     </h3>
                     <p className="text-muted-foreground">
-                      123 Clean Street<br />
-                      Laundry City, LC 12345<br />
+                      2006 W Buckingham Rd<br />
+                      Garland, TX 75042<br />
                       {getText('United States', 'Estados Unidos')}
                     </p>
                   </div>
@@ -79,9 +79,9 @@ const Location = () => {
                       {getText('Phone', 'Teléfono')}
                     </h3>
                     <p className="text-muted-foreground">
-                      (555) 123-WASH<br />
+                      LaundroWell@hotmail.com<br />
                       <span className="text-sm">
-                        {getText('Available 24/7 for emergencies', 'Disponible 24/7 para emergencias')}
+                        {getText('We respond within 24 hours', 'Respondemos dentro de 24 horas')}
                       </span>
                     </p>
                   </div>
@@ -98,7 +98,7 @@ const Location = () => {
                       {getText('Email', 'Correo Electrónico')}
                     </h3>
                     <p className="text-muted-foreground">
-                      info@cleancare.com<br />
+                      LaundroWell@hotmail.com<br />
                       <span className="text-sm">
                         {getText('We respond within 24 hours', 'Respondemos dentro de 24 horas')}
                       </span>
@@ -133,8 +133,8 @@ const Location = () => {
               <div className="mt-6 p-4 bg-laundry-light rounded-lg">
                 <p className="text-sm text-muted-foreground">
                   <strong>{getText('Note:', 'Nota:')}</strong> {getText(
-                    'Last wash starts 1 hour before closing time. Pickup & delivery service available during these hours.',
-                    'El último lavado comienza 1 hora antes del horario de cierre. Servicio de recogida y entrega disponible durante estos horarios.'
+                    'LAST WASH AT 10PM. Professional drop-off services available during operating hours.',
+                    'ÚLTIMO LAVADO A LAS 10PM. Servicios profesionales de entrega disponibles durante las horas de operación.'
                   )}
                 </p>
               </div>
@@ -152,13 +152,13 @@ const Location = () => {
             <Card className="text-center">
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-laundry-blue to-laundry-blue-dark rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">20</span>
+                  <span className="text-white font-bold text-sm">85lb</span>
                 </div>
                 <h3 className="font-semibold text-lg text-foreground mb-2">
-                  {getText('Washing Machines', 'Lavadoras')}
+                  {getText('Large Capacity Washers', 'Lavadoras de Gran Capacidad')}
                 </h3>
                 <p className="text-muted-foreground">
-                  {getText('High-efficiency machines for all load sizes', 'Máquinas de alta eficiencia para todos los tamaños de carga')}
+                  {getText('State-of-the-art equipment up to 85lbs capacity', 'Equipos de última generación de hasta 85 libras de capacidad')}
                 </p>
               </CardContent>
             </Card>
@@ -166,13 +166,13 @@ const Location = () => {
             <Card className="text-center">
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-laundry-blue to-laundry-blue-dark rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">15</span>
+                  <span className="text-white font-bold text-sm">55lb</span>
                 </div>
                 <h3 className="font-semibold text-lg text-foreground mb-2">
-                  {getText('Dryers', 'Secadoras')}
+                  {getText('High-Capacity Dryers', 'Secadoras de Alta Capacidad')}
                 </h3>
                 <p className="text-muted-foreground">
-                  {getText('Fast-drying technology with gentle care', 'Tecnología de secado rápido con cuidado suave')}
+                  {getText('Fast-drying technology up to 55lbs capacity', 'Tecnología de secado rápido de hasta 55 libras de capacidad')}
                 </p>
               </CardContent>
             </Card>
@@ -180,13 +180,88 @@ const Location = () => {
             <Card className="text-center">
               <CardContent className="p-6">
                 <div className="w-16 h-16 bg-gradient-to-r from-laundry-blue to-laundry-blue-dark rounded-full flex items-center justify-center mx-auto mb-4">
-                  <span className="text-white font-bold text-xl">✓</span>
+                  <span className="text-white font-bold text-xl">💳</span>
                 </div>
                 <h3 className="font-semibold text-lg text-foreground mb-2">
-                  {getText('Free WiFi', 'WiFi Gratuito')}
+                  {getText('Card System', 'Sistema de Tarjeta')}
                 </h3>
                 <p className="text-muted-foreground">
-                  {getText('Stay connected while you wait', 'Manténgase conectado mientras espera')}
+                  {getText('No coins, no mess. Easy-to-use store card system', 'Sin monedas, sin desorden. Sistema de tarjeta fácil de usar')}
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Amenities Section */}
+        <div className="mt-16">
+          <h2 className="text-3xl font-bold text-foreground text-center mb-12">
+            {getText('Our Amenities', 'Nuestras Comodidades')}
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {getText('Affordable Pricing', 'Precios Asequibles')}
+                </h3>
+                <p className="text-muted-foreground">
+                  {getText('Competitive rates for all your laundry needs', 'Tarifas competitivas para todas sus necesidades de lavandería')}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {getText('Professional Staff', 'Personal Profesional')}
+                </h3>
+                <p className="text-muted-foreground">
+                  {getText('Friendly & professional staff, always attended!', '¡Personal amable y profesional, siempre atendido!')}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {getText('Fast Service', 'Servicio Rápido')}
+                </h3>
+                <p className="text-muted-foreground">
+                  {getText('Faster wash & dry with state-of-the-art equipment', 'Lavado y secado más rápido con equipos de última generación')}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {getText('Safe & Clean', 'Seguro y Limpio')}
+                </h3>
+                <p className="text-muted-foreground">
+                  {getText('Safe and clean environment for your entire family', 'Ambiente seguro y limpio para toda su familia')}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {getText('Drop-off Service', 'Servicio de Entrega')}
+                </h3>
+                <p className="text-muted-foreground">
+                  {getText('Professional drop-off services at affordable prices', 'Servicios profesionales de entrega a precios asequibles')}
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="p-6">
+                <h3 className="font-semibold text-lg text-foreground mb-2">
+                  {getText('Clean Bathrooms', 'Baños Limpios')}
+                </h3>
+                <p className="text-muted-foreground">
+                  {getText('Clean and spacious bathrooms sanitized every hour', 'Baños limpios y espaciosos desinfectados cada hora')}
                 </p>
               </CardContent>
             </Card>
