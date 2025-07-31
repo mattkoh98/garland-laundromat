@@ -52,6 +52,12 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Laundromat specific colors
+				'laundry-blue': 'hsl(var(--laundry-blue))',
+				'laundry-blue-dark': 'hsl(var(--laundry-blue-dark))',
+				'laundry-light': 'hsl(var(--laundry-light))',
+				'fresh-white': 'hsl(var(--fresh-white))',
+				'clean-gray': 'hsl(var(--clean-gray))',
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
