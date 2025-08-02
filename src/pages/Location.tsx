@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Phone, Mail, Navigation } from "lucide-react";
+import { MapPin, Clock, Phone, Navigation } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Location = () => {
-  const [language] = useState<'en' | 'es'>('en');
-
-  const getText = (en: string, es: string) => {
-    return language === 'en' ? en : es;
-  };
+  const { getText } = useLanguage();
 
   const hours = [
     { day: getText('Monday', 'Lunes'), hours: '7:00 AM - 11:00 PM' },
@@ -28,25 +25,22 @@ const Location = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             {getText('Visit Our Location', 'Visite Nuestra Ubicación')}
           </h1>
-          <p className="text-xl text-muted-foreground">
-            {getText('Find us in the heart of the city', 'Encuéntrenos en el corazón de la ciudad')}
-          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Map Placeholder */}
+          {/* Google Maps Embed */}
           <Card className="overflow-hidden">
-            <div className="h-96 bg-gradient-to-br from-laundry-light to-accent flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
-                <p className="text-lg text-muted-foreground">
-                  {getText('Interactive Map Coming Soon', 'Mapa Interactivo Próximamente')}
-                </p>
-                <Button variant="outline" className="mt-4">
-                  <Navigation className="w-4 h-4 mr-2" />
-                  {getText('Get Directions', 'Obtener Direcciones')}
-                </Button>
-              </div>
+            <div className="h-96">
+              <iframe
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=2006+w+Buckingham+rd,+Garland+TX+75042&zoom=15"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="LaundroWell Garland Location"
+              />
             </div>
           </Card>
 
@@ -79,34 +73,16 @@ const Location = () => {
                       {getText('Phone', 'Teléfono')}
                     </h3>
                     <p className="text-muted-foreground">
-                      LaundroWell@hotmail.com<br />
-                      <span className="text-sm">
-                        {getText('We respond within 24 hours', 'Respondemos dentro de 24 horas')}
-                      </span>
+                      <a href="tel:+14693040278" className="hover:text-primary transition-colors">
+                        (469) 304-0278
+                      </a><br />
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <Mail className="w-6 h-6 text-primary mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-lg text-foreground mb-2">
-                      {getText('Email', 'Correo Electrónico')}
-                    </h3>
-                    <p className="text-muted-foreground">
-                      LaundroWell@hotmail.com<br />
-                      <span className="text-sm">
-                        {getText('We respond within 24 hours', 'Respondemos dentro de 24 horas')}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+
           </div>
         </div>
 

@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const FAQ = () => {
-  const [language] = useState<'en' | 'es'>('en');
-
-  const getText = (en: string, es: string) => {
-    return language === 'en' ? en : es;
-  };
+  const { getText } = useLanguage();
 
   const faqs = [
     {
@@ -76,8 +73,8 @@ const FAQ = () => {
     {
       question: getText('Do you provide laundry bags or baskets?', '¿Proporcionan bolsas o canastas de lavandería?'),
       answer: getText(
-        'Yes, we provide complimentary laundry bags for pickup and delivery service. We also have baskets available for use in our facility.',
-        'Sí, proporcionamos bolsas de lavandería complementarias para el servicio de recogida y entrega. También tenemos canastas disponibles para usar en nuestras instalaciones.'
+        'We will use what you provide for pickup and delivery service. If not we will use disposable bags.',
+        'Usaremos lo que usted proporcione para el servicio de recogida y entrega. Si no, usaremos bolsas desechables.'
       )
     }
   ];
@@ -130,14 +127,9 @@ const FAQ = () => {
                 )}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+15551234927" className="inline-block">
+                <a href="tel:+14693040278" className="inline-block">
                   <button className="bg-white text-laundry-blue px-6 py-3 rounded-md font-medium hover:bg-laundry-light transition-colors">
-                    {getText('Call Us: (555) 123-WASH', 'Llámenos: (555) 123-WASH')}
-                  </button>
-                </a>
-                <a href="mailto:info@cleancare.com" className="inline-block">
-                  <button className="border-2 border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-laundry-blue transition-colors">
-                    {getText('Email Us', 'Envíenos un Email')}
+                    {getText('Call Us: (469) 304-0278', 'Llámenos: (469) 304-0278')}
                   </button>
                 </a>
               </div>

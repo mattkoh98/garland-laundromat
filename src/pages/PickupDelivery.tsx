@@ -7,10 +7,11 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Truck, Clock, Star, Gift, Calculator, Phone } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 
 const PickupDelivery = () => {
-  const [language] = useState<'en' | 'es'>('en');
+  const { getText } = useLanguage();
   const [weight, setWeight] = useState<number>(10);
   const [isFirstTime, setIsFirstTime] = useState(false);
   const [isRepeatCustomer, setIsRepeatCustomer] = useState(false);
@@ -27,9 +28,7 @@ const PickupDelivery = () => {
   });
   const { toast } = useToast();
 
-  const getText = (en: string, es: string) => {
-    return language === 'en' ? en : es;
-  };
+
 
   const calculatePrice = () => {
     let basePrice = weight * 3; // $3/lb
@@ -459,10 +458,10 @@ const PickupDelivery = () => {
                   'Llámenos para programar recogida o hacer preguntas sobre nuestro servicio.'
                 )}
               </p>
-              <a href="tel:+15551234927" className="inline-block">
+              <a href="tel:+14693040278" className="inline-block">
                 <Button variant="clean" size="lg">
                   <Phone className="w-4 h-4 mr-2" />
-                  {getText('Call (555) 123-WASH', 'Llamar (555) 123-WASH')}
+                  {getText('Call (469) 304-0278', 'Llamar (469) 304-0278')}
                 </Button>
               </a>
             </CardContent>
