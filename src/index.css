@@ -39,7 +39,7 @@ All colors MUST be HSL.
     /* Laundromat specific colors */
     --laundry-blue: 213 94% 68%;
     --laundry-blue-dark: 213 84% 58%;
-    --laundry-light: 215 100% 96%;
+    --laundry-light: 0 0% 98%;
     --fresh-white: 0 0% 100%;
     --clean-gray: 213 16% 46%;
 
