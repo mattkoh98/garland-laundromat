@@ -59,7 +59,7 @@ const Home = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="https://app.trycents.com/order/business/OTUw" target="_blank" rel="noopener noreferrer">
               <Button variant="hero" size="lg" className="text-lg px-8 py-3">
-                {getText('Schedule Pickup', 'Programar Recogida')}
+                {getText('Schedule Pickup and Delivery', 'Programar Recogida y Entrega')}
               </Button>
             </a>
             <Link to="/location">
@@ -197,7 +197,7 @@ const Home = () => {
             <a href="https://app.trycents.com/order/business/OTUw" target="_blank" rel="noopener noreferrer">
               <Button variant="clean" size="lg" className="text-lg px-8 py-3">
                 <Truck className="w-5 h-5 mr-2" />
-                {getText('Schedule Pickup', 'Programar Recogida')}
+                {getText('Schedule Pickup and Delivery', 'Programar Recogida y Entrega')}
               </Button>
             </a>
           </div>
