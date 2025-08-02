@@ -128,7 +128,7 @@ const FAQ = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="tel:+14693040278" className="inline-block">
-                  <button className="bg-white text-laundry-blue px-6 py-3 rounded-md font-medium hover:bg-laundry-light transition-colors">
+                  <button className="bg-white text-laundry-blue px-6 py-3 rounded-md font-medium hover:bg-gray-50 transition-colors">
                     {getText('Call Us: (469) 304-0278', 'Llámenos: (469) 304-0278')}
                   </button>
                 </a>

@@ -106,7 +106,7 @@ const Location = () => {
                 ))}
               </div>
 
-              <div className="mt-6 p-4 bg-laundry-light rounded-lg">
+              <div className="mt-6 p-4 bg-gray-50 rounded-lg">
                 <p className="text-sm text-muted-foreground">
                   <strong>{getText('Note:', 'Nota:')}</strong> {getText(
                     'LAST WASH AT 10PM. Professional drop-off services available during operating hours.',

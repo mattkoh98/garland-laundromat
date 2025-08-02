@@ -71,11 +71,11 @@ const Home = () => {
           
           <div className="mt-8 text-center">
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-white/90 text-lg">
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <MapPin className="w-5 h-5" />
                 <span className="font-medium">2006 W Buckingham Rd, Garland, TX 75042</span>
               </div>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Phone className="w-5 h-5" />
                 <a href="tel:+14693040278" className="hover:text-white transition-colors font-medium">
                   (469) 304-0278
@@ -97,7 +97,7 @@ const Home = () => {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-laundry-light">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-foreground mb-4">
