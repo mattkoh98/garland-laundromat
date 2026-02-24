@@ -32,14 +32,14 @@ const Location = () => {
           <Card className="overflow-hidden">
             <div className="h-96">
               <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=2006+w+Buckingham+rd,+Garland+TX+75042&zoom=15"
+                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=107+Latch+Dr+%23110,+San+Antonio,+TX+78213&zoom=15"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="LaundroWell Garland Location"
+                title="LaundroWell San Antonio Location"
               />
             </div>
           </Card>
@@ -55,8 +55,8 @@ const Location = () => {
                       {getText('Address', 'Dirección')}
                     </h3>
                     <p className="text-muted-foreground">
-                      2006 W Buckingham Rd<br />
-                      Garland, TX 75042<br />
+                      107 Latch Dr #110<br />
+                      San Antonio, TX 78213<br />
                       {getText('United States', 'Estados Unidos')}
                     </p>
                   </div>
@@ -73,8 +73,8 @@ const Location = () => {
                       {getText('Phone', 'Teléfono')}
                     </h3>
                     <p className="text-muted-foreground">
-                      <a href="tel:+14693040278" className="hover:text-primary transition-colors">
-                        (469) 304-0278
+                      <a href="tel:+12102579402" className="hover:text-primary transition-colors">
+                        (210) 257-9402
                       </a><br />
                     </p>
                   </div>

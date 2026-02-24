@@ -111,8 +111,8 @@ const About = () => {
                     </p>
                     <p>
                       {getText(
-                        'Today, we continue to evolve, adding new services like pickup and delivery while maintaining the personal touch and attention to detail that our customers love.',
-                        'Hoy, continuamos evolucionando, agregando nuevos servicios como recogida y entrega mientras mantenemos el toque personal y la atención al detalle que nuestros clientes aman.'
+                        'Today, we continue to evolve, offering convenient wash & fold drop-off service while maintaining the personal touch and attention to detail that our customers love.',
+                        'Hoy, continuamos evolucionando, ofreciendo conveniente servicio de lavado y doblado mientras mantenemos el toque personal y la atención al detalle que nuestros clientes aman.'
                       )}
                     </p>
                   </div>

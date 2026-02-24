@@ -22,10 +22,10 @@ const FAQ = () => {
       )
     },
     {
-      question: getText('How does pickup and delivery work?', '¿Cómo funciona la recogida y entrega?'),
+      question: getText('Do you offer pickup or delivery?', '¿Ofrecen servicio de recogida o entrega?'),
       answer: getText(
-        'Schedule online or call us. We\'ll pick up your laundry, wash and fold it using your preferences, and deliver it back to you within 24-48 hours. Minimum order is 10 lbs at $3/lb.',
-        'Programe en línea o llámenos. Recogeremos su ropa, la lavaremos y doblaremos según sus preferencias, y se la entregaremos de vuelta en 24-48 horas. El pedido mínimo es de 10 libras a $3/libra.'
+        'No, we currently do not offer pickup or delivery service. All services are available in-store, including self-service and wash & fold drop-off.',
+        'No, actualmente no ofrecemos servicio de recogida ni entrega. Todos los servicios están disponibles en la tienda, incluido autoservicio y servicio de lavado y doblado.'
       )
     },
     {
@@ -45,8 +45,8 @@ const FAQ = () => {
     {
       question: getText('What if I\'m not satisfied with the service?', '¿Qué pasa si no estoy satisfecho con el servicio?'),
       answer: getText(
-        'Customer satisfaction is our top priority. If you\'re not completely satisfied, we\'ll rewash your items for free or provide a full refund. Just let us know within 24 hours of pickup.',
-        'La satisfacción del cliente es nuestra máxima prioridad. Si no está completamente satisfecho, lavaremos sus artículos nuevamente gratis o proporcionaremos un reembolso completo. Solo háganoslo saber dentro de 24 horas de la recogida.'
+        'Customer satisfaction is our top priority. If you\'re not completely satisfied, we\'ll rewash your items for free or provide a full refund. Just let us know within 24 hours of your visit.',
+        'La satisfacción del cliente es nuestra máxima prioridad. Si no está completamente satisfecho, lavaremos sus artículos nuevamente gratis o proporcionaremos un reembolso completo. Solo háganoslo saber dentro de 24 horas de su visita.'
       )
     },
     {
@@ -57,10 +57,10 @@ const FAQ = () => {
       )
     },
     {
-      question: getText('How do I track my laundry order?', '¿Cómo rastreo mi pedido de lavandería?'),
+      question: getText('How do I know when my laundry is ready?', '¿Cómo sé cuándo está lista mi ropa?'),
       answer: getText(
-        'When you schedule pickup and delivery, we\'ll provide you with a tracking number and send SMS updates about your order status, including pickup, washing, and delivery times.',
-        'Cuando programe recogida y entrega, le proporcionaremos un número de seguimiento y enviaremos actualizaciones por SMS sobre el estado de su pedido, incluyendo tiempos de recogida, lavado y entrega.'
+        'When you drop off your laundry, our staff will provide an estimated completion time. You can return at that time or call us if you\'d like an update.',
+        'Cuando deje su ropa, nuestro personal le proporcionará una hora estimada de finalización. Puede regresar a esa hora o llamarnos si desea una actualización.'
       )
     },
     {
@@ -73,8 +73,8 @@ const FAQ = () => {
     {
       question: getText('Do you provide laundry bags or baskets?', '¿Proporcionan bolsas o canastas de lavandería?'),
       answer: getText(
-        'We will use what you provide for pickup and delivery service. If not we will use disposable bags.',
-        'Usaremos lo que usted proporcione para el servicio de recogida y entrega. Si no, usaremos bolsas desechables.'
+        'We will use what you provide when you drop off your laundry. If not, we will use disposable bags.',
+        'Usaremos lo que usted proporcione cuando deje su ropa. Si no, usaremos bolsas desechables.'
       )
     }
   ];
@@ -127,9 +127,9 @@ const FAQ = () => {
                 )}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+14693040278" className="inline-block">
+                <a href="tel:+12102579402" className="inline-block">
                   <button className="bg-white text-laundry-blue px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors">
-                    {getText('Call Us: (469) 304-0278', 'Llámenos: (469) 304-0278')}
+                    {getText('Call Us: (210) 257-9402', 'Llámenos: (210) 257-9402')}
                   </button>
                 </a>
               </div>

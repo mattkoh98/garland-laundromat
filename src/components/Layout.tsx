@@ -18,7 +18,6 @@ const Layout = ({ children }: LayoutProps) => {
     { name: 'Home', href: '/', nameEs: 'Inicio' },
     { name: 'Location', href: '/location', nameEs: 'Ubicación' },
     { name: 'FAQ', href: '/faq', nameEs: 'Preguntas' },
-    { name: 'Pickup & Delivery', href: 'https://app.trycents.com/order/business/OTUw', nameEs: 'Recogida y Entrega', external: true },
   ];
 
 
@@ -156,8 +155,8 @@ const Layout = ({ children }: LayoutProps) => {
               </div>
               <p className="text-muted-foreground text-sm">
                 {getText(
-                  'Your trusted neighborhood laundromat in Garland, TX providing clean, reliable service with state-of-the-art equipment.',
-                  'Su lavandería de confianza del vecindario en Garland, TX brindando servicio limpio y confiable con equipos de última generación.'
+                  'Your trusted neighborhood laundromat in San Antonio, TX providing clean, reliable service with state-of-the-art equipment.',
+                  'Su lavandería de confianza del vecindario en San Antonio, TX brindando servicio limpio y confiable con equipos de última generación.'
                 )}
               </p>
             </div>
@@ -170,9 +169,6 @@ const Layout = ({ children }: LayoutProps) => {
                 <li><Link to="/location" className="hover:text-primary transition-colors">
                   {getText('Location & Hours', 'Ubicación y Horarios')}
                 </Link></li>
-                <li><a href="https://app.trycents.com/order/business/OTUw" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
-                  {getText('Pickup & Delivery', 'Recogida y Entrega')}
-                </a></li>
                 <li><Link to="/faq" className="hover:text-primary transition-colors">
                   {getText('FAQ', 'Preguntas Frecuentes')}
                 </Link></li>
@@ -184,7 +180,7 @@ const Layout = ({ children }: LayoutProps) => {
                 {getText('Address', 'Dirección')}
               </h3>
               <div className="text-sm text-muted-foreground space-y-2">
-                <p>2006 W Buckingham Rd<br />Garland, TX 75042</p>
+                <p>107 Latch Dr #110<br />San Antonio, TX 78213</p>
               </div>
             </div>
             
@@ -193,13 +189,13 @@ const Layout = ({ children }: LayoutProps) => {
                 {getText('Phone', 'Teléfono')}
               </h3>
               <div className="text-sm text-muted-foreground space-y-2">
-                <p><a href="tel:+14693040278" className="hover:text-primary transition-colors">(469) 304-0278</a></p>
+                <p><a href="tel:+12102579402" className="hover:text-primary transition-colors">(210) 257-9402</a></p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 LaundroWell Garland. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
+            <p>&copy; 2024 LaundroWell San Antonio. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
           </div>
         </div>
       </footer>

@@ -7,7 +7,6 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Location from "./pages/Location";
 import FAQ from "./pages/FAQ";
-import PickupDelivery from "./pages/PickupDelivery";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -24,10 +23,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/location" element={<Location />} />
-
               <Route path="/faq" element={<FAQ />} />
-
-              <Route path="/pickup-delivery" element={<PickupDelivery />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

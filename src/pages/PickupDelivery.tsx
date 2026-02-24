@@ -454,14 +454,14 @@ const PickupDelivery = () => {
               </h2>
               <p className="text-white/90 mb-6">
                 {getText(
-                  'Call us to schedule pickup or ask questions about our service.',
-                  'Llámenos para programar recogida o hacer preguntas sobre nuestro servicio.'
+                  'Call us with any questions about our services.',
+                  'Llámenos si tiene alguna pregunta sobre nuestros servicios.'
                 )}
               </p>
-              <a href="tel:+14693040278" className="inline-block">
+              <a href="tel:+12102579402" className="inline-block">
                 <Button variant="clean" size="lg">
                   <Phone className="w-4 h-4 mr-2" />
-                  {getText('Call (469) 304-0278', 'Llamar (469) 304-0278')}
+                  {getText('Call (210) 257-9402', 'Llamar (210) 257-9402')}
                 </Button>
               </a>
             </CardContent>

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Clock, Truck, Sparkles, MapPin, Phone } from "lucide-react";
+import { CheckCircle, Clock, Sparkles, MapPin, Phone } from "lucide-react";
 import heroImage from "@/assets/hero-laundromat.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -11,15 +11,15 @@ const Home = () => {
   const services = [
     {
       icon: Sparkles,
-      title: getText('Wash & Fold Pickup & Delivery', 'Lavar y Doblar Recogida y Entrega'),
-      description: getText('Professional cleaning and folding service', 'Servicio profesional de lavado y doblado'),
-      price: getText('$3/lb', '$3/libra')
+      title: getText('Self-Service Laundry', 'Lavandería de Autoservicio'),
+      description: getText('Clean, modern machines in a comfortable space', 'Máquinas modernas y un espacio cómodo'),
+      price: getText('Great prices every day', 'Excelentes precios todos los días')
     },
     {
-      icon: Truck,
-      title: getText('Pickup & Delivery', 'Recogida y Entrega'),
-      description: getText('Convenient door-to-door service', 'Conveniente servicio puerta a puerta'),
-      price: getText('Minimum 10lbs orders', 'Pedidos mínimos de 10 libras')
+      icon: Clock,
+      title: getText('Wash & Fold Drop-Off', 'Servicio de Lavado y Doblado'),
+      description: getText('Professional cleaning and folding service', 'Servicio profesional de lavado y doblado'),
+      price: getText('Call for current pricing', 'Llame para precios actuales')
     },
     {
       icon: Clock,
@@ -31,7 +31,7 @@ const Home = () => {
 
   const features = [
     getText('Eco-friendly detergents', 'Detergentes ecológicos'),
-    getText('$0 Pickup & delivery fee', 'Cargo de recogida y entrega $0'),
+    getText('Clean, comfortable environment', 'Ambiente limpio y cómodo'),
     getText('Satisfaction guarantee', 'Garantía de satisfacción')
   ];
 
@@ -51,20 +51,15 @@ const Home = () => {
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
             {getText(
-              'Your neighborhood laundromat with pickup & delivery service',
-              'Su lavandería del vecindario con servicio de recogida y entrega'
+              'Your neighborhood laundromat in San Antonio with self-service and wash & fold options',
+              'Su lavandería de confianza en San Antonio con opciones de autoservicio y lavado y doblado'
             )}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://app.trycents.com/order/business/OTUw" target="_blank" rel="noopener noreferrer">
-              <Button variant="hero" size="lg" className="text-lg px-8 py-3">
-                {getText('Schedule Pickup and Delivery', 'Programar Recogida y Entrega')}
-              </Button>
-            </a>
             <Link to="/location">
               <Button variant="clean" size="lg" className="text-lg px-8 py-3">
-                {getText('Visit Our Store', 'Visite Nuestra Tienda')}
+                {getText('Get Directions', 'Obtener Direcciones')}
               </Button>
             </Link>
           </div>
@@ -73,26 +68,16 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-white/90 text-lg">
               <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <MapPin className="w-5 h-5" />
-                <span className="font-medium">2006 W Buckingham Rd, Garland, TX 75042</span>
+                <span className="font-medium">107 Latch Dr #110, San Antonio, TX 78213</span>
               </div>
               <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Phone className="w-5 h-5" />
-                <a href="tel:+14693040278" className="hover:text-white transition-colors font-medium">
-                  (469) 304-0278
+                <a href="tel:+12102579402" className="hover:text-white transition-colors font-medium">
+                  (210) 257-9402
                 </a>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Promo Banner */}
-      <section className="bg-gradient-to-r from-green-500 to-green-600 text-white py-4">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-lg font-semibold">
-            🎉 {getText('First-time customers save 50% on pickup & delivery! Use code:', '¡Los clientes nuevos ahorran 50% en recogida y entrega! Use el código:')} 
-            <span className="bg-white text-green-600 px-3 py-1 rounded-md ml-2 font-bold">SUMMER2025</span>
-          </p>
         </div>
       </section>
 
@@ -188,16 +173,22 @@ const Home = () => {
           </h2>
           <p className="text-xl mb-8 text-white/90">
             {getText(
-              'Schedule your first pickup today and discover the difference quality makes.',
-              'Programe su primera recogida hoy y descubra la diferencia que hace la calidad.'
+              'Visit us at our San Antonio location and discover the difference quality makes.',
+              'Visítenos en nuestra ubicación de San Antonio y descubra la diferencia que hace la calidad.'
             )}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://app.trycents.com/order/business/OTUw" target="_blank" rel="noopener noreferrer">
+            <Link to="/location">
               <Button variant="clean" size="lg" className="text-lg px-8 py-3">
-                <Truck className="w-5 h-5 mr-2" />
-                {getText('Schedule Pickup and Delivery', 'Programar Recogida y Entrega')}
+                <MapPin className="w-5 h-5 mr-2" />
+                {getText('Get Directions', 'Obtener Direcciones')}
+              </Button>
+            </Link>
+            <a href="tel:+12102579402">
+              <Button variant="clean" size="lg" className="text-lg px-8 py-3">
+                <Phone className="w-5 h-5 mr-2" />
+                {getText('Call the Store', 'Llamar a la Tienda')}
               </Button>
             </a>
           </div>
