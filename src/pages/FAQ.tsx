@@ -10,8 +10,8 @@ const FAQ = () => {
     {
       question: getText('What are your washing machine sizes?', '¿Cuáles son los tamaños de sus lavadoras?'),
       answer: getText(
-        'We have regular (up to 20 lbs), large (up to 35 lbs), and extra-large (up to 50 lbs) washing machines to accommodate all your laundry needs.',
-        'Tenemos lavadoras regulares (hasta 20 libras), grandes (hasta 35 libras) y extra grandes (hasta 50 libras) para acomodar todas sus necesidades de lavandería.'
+        'We have machines available up to 85 lbs to accommodate all your laundry needs.',
+        'Tenemos máquinas disponibles de hasta 85 libras para acomodar todas sus necesidades de lavandería.'
       )
     },
     {
@@ -52,15 +52,15 @@ const FAQ = () => {
     {
       question: getText('Do you offer discounts for regular customers?', '¿Ofrecen descuentos para clientes regulares?'),
       answer: getText(
-        'Yes! Regular customers receive a 10% discount on all services. First-time customers can use code SUMMER2025 for 50% off their first order.',
-        '¡Sí! Los clientes regulares reciben un 10% de descuento en todos los servicios. Los clientes nuevos pueden usar el código SUMMER2025 para 50% de descuento en su primer pedido.'
+        'Yes! We offer regular and commercial customers discounts on all services. Please ask in store.',
+        '¡Sí! Ofrecemos descuentos a clientes regulares y comerciales en todos los servicios. Por favor pregunte en la tienda.'
       )
     },
     {
       question: getText('How do I know when my laundry is ready?', '¿Cómo sé cuándo está lista mi ropa?'),
       answer: getText(
-        'When you drop off your laundry, our staff will provide an estimated completion time. You can return at that time or call us if you\'d like an update.',
-        'Cuando deje su ropa, nuestro personal le proporcionará una hora estimada de finalización. Puede regresar a esa hora o llamarnos si desea una actualización.'
+        'When you drop off your laundry, our staff will provide an estimated completion time. You will receive a text notification automatically.',
+        'Cuando deje su ropa, nuestro personal le proporcionará una hora estimada de finalización. Recibirá una notificación por mensaje de texto automáticamente.'
       )
     },
     {

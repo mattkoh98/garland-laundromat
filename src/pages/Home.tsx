@@ -118,8 +118,8 @@ const Home = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-8">
                 {getText(
-                  'We\'ve been serving the community for over 4 years with reliable, high-quality laundry services.',
-                  'Hemos estado sirviendo a la comunidad por más de 4 años con servicios de lavandería confiables y de alta calidad.'
+                  'We\'ve been serving the community for over 10 years with reliable, high-quality laundry services.',
+                  'Hemos estado sirviendo a la comunidad por más de 10 años con servicios de lavandería confiables y de alta calidad.'
                 )}
               </p>
               
@@ -137,7 +137,7 @@ const Home = () => {
 
             <div className="grid grid-cols-2 gap-4">
               <Card className="p-6 text-center">
-                <h3 className="text-3xl font-bold text-primary mb-2">4+</h3>
+                <h3 className="text-3xl font-bold text-primary mb-2">10+</h3>
                 <p className="text-muted-foreground">
                   {getText('Years of Service', 'Años de Servicio')}
                 </p>

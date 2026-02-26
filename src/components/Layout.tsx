@@ -15,6 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
 
   const navigation = [
+    { name: 'Next Level Laundromat', href: '/next-level-laundromat', nameEs: 'Next Level Laundromat' },
     { name: 'Home', href: '/', nameEs: 'Inicio' },
     { name: 'Location', href: '/location', nameEs: 'Ubicación' },
     { name: 'FAQ', href: '/faq', nameEs: 'Preguntas' },
@@ -39,31 +40,46 @@ const Layout = ({ children }: LayoutProps) => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navigation.map((item) => (
-                item.external ? (
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
-                  >
-                    {language === 'en' ? item.name : item.nameEs}
-                  </a>
-                ) : (
+              {navigation.map((item) => {
+                const isActive = location.pathname === item.href;
+                const isFeatured = item.name === 'Next Level Laundromat';
+
+                if (item.external) {
+                  return (
+                    <a
+                      key={item.href}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+                    >
+                      {language === 'en' ? item.name : item.nameEs}
+                    </a>
+                  );
+                }
+
+                return (
                   <Link
                     key={item.href}
                     to={item.href}
-                    className={`text-sm font-medium transition-colors hover:text-primary ${
-                      location.pathname === item.href
-                        ? 'text-primary border-b-2 border-primary'
-                        : 'text-muted-foreground'
+                    className={`text-sm font-medium transition-colors ${
+                      isFeatured
+                        ? `px-3 py-1 rounded-full border ${
+                            isActive
+                              ? 'bg-primary text-white border-primary shadow-sm'
+                              : 'border-primary/40 text-primary bg-primary/5 hover:bg-primary/10 hover:text-primary'
+                          }`
+                        : `hover:text-primary ${
+                            isActive
+                              ? 'text-primary border-b-2 border-primary'
+                              : 'text-muted-foreground'
+                          }`
                     }`}
                   >
                     {language === 'en' ? item.name : item.nameEs}
                   </Link>
-                )
-              ))}
+                );
+              })}
               
               {/* Language Toggle */}
               <Button
@@ -103,33 +119,48 @@ const Layout = ({ children }: LayoutProps) => {
           {isMenuOpen && (
             <div className="md:hidden py-4 border-t border-border">
               <div className="flex flex-col space-y-4">
-                {navigation.map((item) => (
-                  item.external ? (
-                    <a
-                      key={item.href}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
-                    >
-                      {language === 'en' ? item.name : item.nameEs}
-                    </a>
-                  ) : (
+                {navigation.map((item) => {
+                  const isActive = location.pathname === item.href;
+                  const isFeatured = item.name === 'Next Level Laundromat';
+
+                  if (item.external) {
+                    return (
+                      <a
+                        key={item.href}
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-sm font-medium transition-colors hover:text-primary text-muted-foreground"
+                      >
+                        {language === 'en' ? item.name : item.nameEs}
+                      </a>
+                    );
+                  }
+
+                  return (
                     <Link
                       key={item.href}
                       to={item.href}
                       onClick={() => setIsMenuOpen(false)}
-                      className={`text-sm font-medium transition-colors hover:text-primary ${
-                        location.pathname === item.href
-                          ? 'text-primary'
-                          : 'text-muted-foreground'
+                      className={`text-sm font-medium transition-colors ${
+                        isFeatured
+                          ? `px-3 py-1 rounded-full border ${
+                              isActive
+                                ? 'bg-primary text-white border-primary shadow-sm'
+                                : 'border-primary/40 text-primary bg-primary/5 hover:bg-primary/10 hover:text-primary'
+                            }`
+                          : `hover:text-primary ${
+                              isActive
+                                ? 'text-primary'
+                                : 'text-muted-foreground'
+                            }`
                       }`}
                     >
                       {language === 'en' ? item.name : item.nameEs}
                     </Link>
-                  )
-                ))}
+                  );
+                })}
               </div>
             </div>
           )}
