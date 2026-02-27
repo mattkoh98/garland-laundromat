@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Location from "./pages/Location";
 import FAQ from "./pages/FAQ";
 import NextLevelLaundromat from "./pages/NextLevelLaundromat";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import { LanguageProvider } from "./contexts/LanguageContext";
 
@@ -26,6 +27,7 @@ const App = () => (
               <Route path="/location" element={<Location />} />
               <Route path="/next-level-laundromat" element={<NextLevelLaundromat />} />
               <Route path="/faq" element={<FAQ />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

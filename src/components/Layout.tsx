@@ -203,6 +203,11 @@ const Layout = ({ children }: LayoutProps) => {
                 <li><Link to="/faq" className="hover:text-primary transition-colors">
                   {getText('FAQ', 'Preguntas Frecuentes')}
                 </Link></li>
+                <li>
+                  <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+                    {getText('Privacy Policy', 'Política de Privacidad')}
+                  </Link>
+                </li>
               </ul>
             </div>
             
@@ -225,8 +230,14 @@ const Layout = ({ children }: LayoutProps) => {
             </div>
           </div>
           
-          <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
+          <div className="border-t border-border mt-8 pt-6 text-center text-sm text-muted-foreground">
             <p>&copy; 2024 LaundroWell San Antonio. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
+            <Link
+              to="/privacy-policy"
+              className="mt-1 inline-block text-[11px] text-muted-foreground hover:text-primary transition-colors"
+            >
+              {getText('Privacy Policy', 'Política de Privacidad')}
+            </Link>
           </div>
         </div>
       </footer>
