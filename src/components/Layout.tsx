@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
 import LaundroWellLogo from "@/assets/LaundroWellLogo.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getMarketConfig } from "@/lib/market";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, toggleLanguage, getText } = useLanguage();
   const location = useLocation();
+  const { market } = useParams();
+  const marketConfig = getMarketConfig(market);
+  const basePath = `/${marketConfig.key}`;
 
   const navigation = [
-    { name: 'Next Level Laundromat', href: '/next-level-laundromat', nameEs: 'Next Level Laundromat' },
-    { name: 'Home', href: '/', nameEs: 'Inicio' },
-    { name: 'Location', href: '/location', nameEs: 'Ubicación' },
-    { name: 'FAQ', href: '/faq', nameEs: 'Preguntas' },
+    { name: 'Next Level Laundromat', href: `${basePath}/next-level-laundromat`, nameEs: 'Next Level Laundromat' },
+    { name: 'Home', href: `${basePath}`, nameEs: 'Inicio' },
+    { name: 'Location', href: `${basePath}/location`, nameEs: 'Ubicación' },
+    { name: 'FAQ', href: `${basePath}/faq`, nameEs: 'Preguntas' },
   ];
 
 
@@ -30,7 +30,7 @@ const Layout = ({ children }: LayoutProps) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 md:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <Link to={basePath} className="flex items-center">
               <img 
                 src={LaundroWellLogo} 
                 alt="LaundroWell Logo" 
@@ -169,7 +169,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       {/* Main Content */}
       <main className="flex-1">
-        {children}
+        <Outlet />
       </main>
 
       {/* Footer */}
@@ -186,8 +186,8 @@ const Layout = ({ children }: LayoutProps) => {
               </div>
               <p className="text-muted-foreground text-sm">
                 {getText(
-                  'Your trusted neighborhood laundromat in San Antonio, TX providing clean, reliable service with state-of-the-art equipment.',
-                  'Su lavandería de confianza del vecindario en San Antonio, TX brindando servicio limpio y confiable con equipos de última generación.'
+                  `Your trusted neighborhood laundromat in ${marketConfig.cityState} providing clean, reliable service with state-of-the-art equipment.`,
+                  `Su lavandería de confianza del vecindario en ${marketConfig.cityState} brindando servicio limpio y confiable con equipos de última generación.`
                 )}
               </p>
             </div>
@@ -197,14 +197,14 @@ const Layout = ({ children }: LayoutProps) => {
                 {getText('Quick Links', 'Enlaces Rápidos')}
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/location" className="hover:text-primary transition-colors">
+                <li><Link to={`${basePath}/location`} className="hover:text-primary transition-colors">
                   {getText('Location & Hours', 'Ubicación y Horarios')}
                 </Link></li>
-                <li><Link to="/faq" className="hover:text-primary transition-colors">
+                <li><Link to={`${basePath}/faq`} className="hover:text-primary transition-colors">
                   {getText('FAQ', 'Preguntas Frecuentes')}
                 </Link></li>
                 <li>
-                  <Link to="/privacy-policy" className="hover:text-primary transition-colors">
+                  <Link to={`${basePath}/privacy-policy`} className="hover:text-primary transition-colors">
                     {getText('Privacy Policy', 'Política de Privacidad')}
                   </Link>
                 </li>
@@ -216,7 +216,7 @@ const Layout = ({ children }: LayoutProps) => {
                 {getText('Address', 'Dirección')}
               </h3>
               <div className="text-sm text-muted-foreground space-y-2">
-                <p>107 Latch Dr #110<br />San Antonio, TX 78213</p>
+                <p>{marketConfig.addressLine1}<br />{marketConfig.addressLine2}</p>
               </div>
             </div>
             
@@ -225,15 +225,15 @@ const Layout = ({ children }: LayoutProps) => {
                 {getText('Phone', 'Teléfono')}
               </h3>
               <div className="text-sm text-muted-foreground space-y-2">
-                <p><a href="tel:+12102579402" className="hover:text-primary transition-colors">(210) 257-9402</a></p>
+                <p><a href={`tel:${marketConfig.phoneHref}`} className="hover:text-primary transition-colors">{marketConfig.phoneDisplay}</a></p>
               </div>
             </div>
           </div>
           
           <div className="border-t border-border mt-8 pt-6 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 LaundroWell San Antonio. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
+            <p>&copy; 2024 LaundroWell {marketConfig.name}. {getText('All rights reserved.', 'Todos los derechos reservados.')}</p>
             <Link
-              to="/privacy-policy"
+              to={`${basePath}/privacy-policy`}
               className="mt-1 inline-block text-[11px] text-muted-foreground hover:text-primary transition-colors"
             >
               {getText('Privacy Policy', 'Política de Privacidad')}

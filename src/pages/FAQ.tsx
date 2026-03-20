@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getMarketConfig } from "@/lib/market";
 
 const FAQ = () => {
   const { getText } = useLanguage();
+  const { market } = useParams();
+  const marketConfig = getMarketConfig(market);
 
   const faqs = [
     {
@@ -127,9 +131,9 @@ const FAQ = () => {
                 )}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:+12102579402" className="inline-block">
+                <a href={`tel:${marketConfig.phoneHref}`} className="inline-block">
                   <button className="bg-white text-laundry-blue px-6 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors">
-                    {getText('Call Us: (210) 257-9402', 'Llámenos: (210) 257-9402')}
+                    {getText(`Call Us: ${marketConfig.phoneDisplay}`, `Llámenos: ${marketConfig.phoneDisplay}`)}
                   </button>
                 </a>
               </div>

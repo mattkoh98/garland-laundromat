@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Clock, Sparkles, MapPin, Phone } from "lucide-react";
@@ -6,9 +6,13 @@ import heroImage from "@/assets/hero-laundromat.jpg";
 import OpeningSpecialFront from "@/assets/EDDM bilingual - final-1.png";
 import OpeningSpecialBack from "@/assets/EDDM bilingual - final-2.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { getMarketConfig } from "@/lib/market";
 
 const Home = () => {
   const { getText } = useLanguage();
+  const { market } = useParams();
+  const marketConfig = getMarketConfig(market);
+  const basePath = `/${marketConfig.key}`;
 
   const services = [
     {
@@ -53,13 +57,13 @@ const Home = () => {
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-white/90">
             {getText(
-              'Your neighborhood laundromat in San Antonio with self-service and wash & fold options',
-              'Su lavandería de confianza en San Antonio con opciones de autoservicio y lavado y doblado'
+              `Your neighborhood laundromat in ${marketConfig.name} with self-service and wash & fold options`,
+              `Su lavandería de confianza en ${marketConfig.name} con opciones de autoservicio y lavado y doblado`
             )}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/location">
+            <Link to={`${basePath}/location`}>
               <Button variant="clean" size="lg" className="text-lg px-8 py-3">
                 {getText('Get Directions', 'Obtener Direcciones')}
               </Button>
@@ -70,12 +74,12 @@ const Home = () => {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center text-white/90 text-lg">
               <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <MapPin className="w-5 h-5" />
-                <span className="font-medium">107 Latch Dr #110, San Antonio, TX 78213</span>
+                <span className="font-medium">{marketConfig.fullAddress}</span>
               </div>
               <div className="flex items-center gap-3 bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
                 <Phone className="w-5 h-5" />
-                <a href="tel:+12102579402" className="hover:text-white transition-colors font-medium">
-                  (210) 257-9402
+                <a href={`tel:${marketConfig.phoneHref}`} className="hover:text-white transition-colors font-medium">
+                  {marketConfig.phoneDisplay}
                 </a>
               </div>
             </div>
@@ -83,50 +87,51 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Opening Special Section */}
-      <section className="py-16 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
-            <div>
-              <p className="inline-flex items-center rounded-full bg-laundry-blue/10 text-laundry-blue px-3 py-1 text-xs font-semibold uppercase tracking-wide mb-3">
-                {getText('Opening Special', 'Especial de Apertura')}
-              </p>
-              <h2 className="text-3xl font-bold text-foreground mb-2">
-                {getText('Next Level Laundromat Grand Opening', 'Gran Apertura de Next Level Laundromat')}
-              </h2>
-              <p className="text-sm md:text-base text-muted-foreground max-w-xl">
-                {getText(
-                  'Check your mailer or visit our store to see our bilingual grand‑opening offers, designed to make your first visit easy and affordable.',
-                  'Revise su correo o visite nuestra tienda para ver nuestras ofertas bilingües de gran apertura, diseñadas para que su primera visita sea fácil y económica.'
-                )}
-              </p>
+      {marketConfig.key === "san-antonio" && (
+        <section className="py-16 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-8">
+              <div>
+                <p className="inline-flex items-center rounded-full bg-laundry-blue/10 text-laundry-blue px-3 py-1 text-xs font-semibold uppercase tracking-wide mb-3">
+                  {getText('Opening Special', 'Especial de Apertura')}
+                </p>
+                <h2 className="text-3xl font-bold text-foreground mb-2">
+                  {getText('Next Level Laundromat Grand Opening', 'Gran Apertura de Next Level Laundromat')}
+                </h2>
+                <p className="text-sm md:text-base text-muted-foreground max-w-xl">
+                  {getText(
+                    'Check your mailer or visit our store to see our bilingual grand‑opening offers, designed to make your first visit easy and affordable.',
+                    'Revise su correo o visite nuestra tienda para ver nuestras ofertas bilingües de gran apertura, diseñadas para que su primera visita sea fácil y económica.'
+                  )}
+                </p>
+              </div>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="overflow-hidden rounded-xl border border-border/60 bg-white shadow-sm">
-              <div className="aspect-[4/3] bg-muted flex items-center justify-center">
-                <img
-                  src={OpeningSpecialFront}
-                  alt="Grand opening bilingual mailer front"
-                  className="h-full w-full object-contain"
-                  loading="lazy"
-                />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="overflow-hidden rounded-xl border border-border/60 bg-white shadow-sm">
+                <div className="aspect-[4/3] bg-muted flex items-center justify-center">
+                  <img
+                    src={OpeningSpecialFront}
+                    alt="Grand opening bilingual mailer front"
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="overflow-hidden rounded-xl border border-border/60 bg-white shadow-sm">
-              <div className="aspect-[4/3] bg-muted flex items-center justify-center">
-                <img
-                  src={OpeningSpecialBack}
-                  alt="Grand opening bilingual mailer back"
-                  className="h-full w-full object-contain"
-                  loading="lazy"
-                />
+              <div className="overflow-hidden rounded-xl border border-border/60 bg-white shadow-sm">
+                <div className="aspect-[4/3] bg-muted flex items-center justify-center">
+                  <img
+                    src={OpeningSpecialBack}
+                    alt="Grand opening bilingual mailer back"
+                    className="h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Services Section */}
       <section className="py-20 bg-white">
@@ -220,19 +225,19 @@ const Home = () => {
           </h2>
           <p className="text-xl mb-8 text-white/90">
             {getText(
-              'Visit us at our San Antonio location and discover the difference quality makes.',
-              'Visítenos en nuestra ubicación de San Antonio y descubra la diferencia que hace la calidad.'
+              `Visit us at our ${marketConfig.name} location and discover the difference quality makes.`,
+              `Visítenos en nuestra ubicación de ${marketConfig.name} y descubra la diferencia que hace la calidad.`
             )}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/location">
+            <Link to={`${basePath}/location`}>
               <Button variant="clean" size="lg" className="text-lg px-8 py-3">
                 <MapPin className="w-5 h-5 mr-2" />
                 {getText('Get Directions', 'Obtener Direcciones')}
               </Button>
             </Link>
-            <a href="tel:+12102579402">
+            <a href={`tel:${marketConfig.phoneHref}`}>
               <Button variant="clean" size="lg" className="text-lg px-8 py-3">
                 <Phone className="w-5 h-5 mr-2" />
                 {getText('Call the Store', 'Llamar a la Tienda')}

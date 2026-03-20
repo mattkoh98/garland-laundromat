@@ -1,7 +1,11 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useParams } from "react-router-dom";
+import { getMarketConfig } from "@/lib/market";
 
 const PrivacyPolicy = () => {
   const { getText } = useLanguage();
+  const { market } = useParams();
+  const marketConfig = getMarketConfig(market);
 
   return (
     <div className="py-10 border-t border-border bg-background/80">
@@ -17,8 +21,8 @@ const PrivacyPolicy = () => {
         </p>
         <p className="mb-1">
           {getText(
-            "If you have any questions about how we handle your information, please contact us at the store or by phone at (210) 257-9402.",
-            "Si tiene preguntas sobre cómo manejamos su información, por favor contáctenos en la tienda o por teléfono al (210) 257-9402."
+            `If you have any questions about how we handle your information, please contact us at the store or by phone at ${marketConfig.phoneDisplay}.`,
+            `Si tiene preguntas sobre cómo manejamos su información, por favor contáctenos en la tienda o por teléfono al ${marketConfig.phoneDisplay}.`
           )}
         </p>
         <p className="mt-1 opacity-80">

@@ -1,11 +1,13 @@
-import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { MapPin, Clock, Phone, Navigation } from "lucide-react";
+import { MapPin, Clock, Phone } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useParams } from "react-router-dom";
+import { getMarketConfig } from "@/lib/market";
 
 const Location = () => {
   const { getText } = useLanguage();
+  const { market } = useParams();
+  const marketConfig = getMarketConfig(market);
 
   const hours = [
     { day: getText('Monday', 'Lunes'), hours: '7:00 AM - 11:00 PM' },
@@ -28,23 +30,21 @@ const Location = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Google Maps Embed */}
           <Card className="overflow-hidden">
             <div className="h-96">
               <iframe
-                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=107+Latch+Dr+%23110,+San+Antonio,+TX+78213&zoom=15"
+                src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyCcywKcxXeMZiMwLDcLgyEnNglcLOyB_qw&q=${marketConfig.mapQuery}&zoom=15`}
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="LaundroWell San Antonio Location"
+                title={`LaundroWell ${marketConfig.name} Location`}
               />
             </div>
           </Card>
 
-          {/* Location Info */}
           <div className="space-y-6">
             <Card>
               <CardContent className="p-6">
@@ -52,12 +52,12 @@ const Location = () => {
                   <MapPin className="w-6 h-6 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg text-foreground mb-2">
-                      {getText('Address', 'Dirección')}
+                      {getText("Address", "Direccion")}
                     </h3>
                     <p className="text-muted-foreground">
-                      107 Latch Dr #110<br />
-                      San Antonio, TX 78213<br />
-                      {getText('United States', 'Estados Unidos')}
+                      {marketConfig.addressLine1}<br />
+                      {marketConfig.addressLine2}<br />
+                      {getText("United States", "Estados Unidos")}
                     </p>
                   </div>
                 </div>
@@ -70,19 +70,17 @@ const Location = () => {
                   <Phone className="w-6 h-6 text-primary mt-1" />
                   <div>
                     <h3 className="font-semibold text-lg text-foreground mb-2">
-                      {getText('Phone', 'Teléfono')}
+                      {getText("Phone", "Telefono")}
                     </h3>
                     <p className="text-muted-foreground">
-                      <a href="tel:+12102579402" className="hover:text-primary transition-colors">
-                        (210) 257-9402
-                      </a><br />
+                      <a href={`tel:${marketConfig.phoneHref}`} className="hover:text-primary transition-colors">
+                        {marketConfig.phoneDisplay}
+                      </a>
                     </p>
                   </div>
                 </div>
               </CardContent>
             </Card>
-
-
           </div>
         </div>
 
