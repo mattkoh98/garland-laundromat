@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import logo from "@/assets/LaundroWellLogo.jpg";
 
 const LocationSelector = () => {
   const { language, toggleLanguage, getText } = useLanguage();
@@ -62,6 +63,14 @@ const LocationSelector = () => {
               </CardContent>
             </Card>
           </Link>
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <img
+            src={logo}
+            alt="LaundroWell"
+            className="h-20 object-contain opacity-80"
+          />
         </div>
       </div>
     </div>
