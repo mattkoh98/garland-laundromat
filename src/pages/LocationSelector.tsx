@@ -1,17 +1,32 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { MapPin, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const LocationSelector = () => {
+  const { language, toggleLanguage, getText } = useLanguage();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white flex items-center">
       <div className="max-w-5xl mx-auto px-4 py-16 w-full">
+        <div className="flex justify-end mb-6">
+          <button
+            onClick={toggleLanguage}
+            className="text-sm font-semibold text-primary border border-primary/30 rounded-full px-4 py-1.5 hover:bg-primary/5 transition-colors"
+          >
+            {language === 'en' ? 'Español' : 'English'}
+          </button>
+        </div>
+
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Choose Your Location
+            {getText('Choose Your Location', 'Elige Tu Ubicación')}
           </h1>
           <p className="text-lg text-muted-foreground">
-            Select your nearest LaundroWell to view local services, specials, and contact info.
+            {getText(
+              'Select your nearest LaundroWell to view local services, specials, and contact info.',
+              'Selecciona la LaundroWell más cercana para ver servicios, ofertas e información de contacto.'
+            )}
           </p>
         </div>
 
@@ -54,4 +69,3 @@ const LocationSelector = () => {
 };
 
 export default LocationSelector;
-

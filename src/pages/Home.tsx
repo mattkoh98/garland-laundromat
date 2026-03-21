@@ -133,6 +133,82 @@ const Home = () => {
         </section>
       )}
 
+      {/* Free Dry Promo — Garland only */}
+      {marketConfig.key === "garland" && (
+        <section className="py-20 bg-slate-50">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-10">
+              <p className="inline-flex items-center rounded-full bg-laundry-blue/10 text-laundry-blue px-3 py-1 text-xs font-semibold uppercase tracking-wide mb-3">
+                {getText('Exclusive Offer', 'Oferta Exclusiva')}
+              </p>
+              <h2 className="text-4xl font-bold text-foreground mb-4">
+                {getText('Free Dry With Every Wash', 'Secado Gratis con Cada Lavado')}
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {getText(
+                  'At our Garland location, every self-service wash cycle comes with a free dryer cycle. Wash and dry for the price of one.',
+                  'En nuestra ubicación de Garland, cada ciclo de lavado de autoservicio incluye un ciclo de secado gratis. Lave y seque por el precio de uno.'
+                )}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="hover:shadow-medium transition-all duration-300 transform hover:scale-105 border-laundry-blue/20">
+                <CardContent className="p-8 text-center">
+                  <div className="w-14 h-14 rounded-full bg-laundry-blue/10 flex items-center justify-center mx-auto mb-4">
+                    <Sparkles className="w-7 h-7 text-laundry-blue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {getText('Wash Your Clothes', 'Lave Su Ropa')}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {getText('Use any of our modern self-service washing machines', 'Use cualquiera de nuestras modernas lavadoras de autoservicio')}
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-medium transition-all duration-300 transform hover:scale-105 bg-gradient-to-br from-laundry-blue to-laundry-blue-dark border-0">
+                <CardContent className="p-8 text-center">
+                  <div className="w-14 h-14 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle className="w-7 h-7 text-white" />
+                  </div>
+                  <p className="text-white/80 text-sm font-semibold uppercase tracking-widest mb-1">
+                    {getText('You Get', 'Usted Recibe')}
+                  </p>
+                  <h3 className="text-4xl font-black text-white mb-1">
+                    {getText('FREE', 'GRATIS')}
+                  </h3>
+                  <p className="text-2xl font-bold text-white/90">
+                    {getText('Dryer Cycle', 'Ciclo de Secado')}
+                  </p>
+                  <p className="text-white/70 text-sm mt-3">
+                    {getText('No coupons needed', 'Sin cupones necesarios')}
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="hover:shadow-medium transition-all duration-300 transform hover:scale-105 border-laundry-blue/20">
+                <CardContent className="p-8 text-center">
+                  <div className="w-14 h-14 rounded-full bg-laundry-blue/10 flex items-center justify-center mx-auto mb-4">
+                    <Clock className="w-7 h-7 text-laundry-blue" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {getText('Save Every Visit', 'Ahorre en Cada Visita')}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {getText('Available 7 days a week — no limits, no fine print', 'Disponible 7 días a la semana — sin límites, sin letra pequeña')}
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <p className="text-center text-sm text-muted-foreground mt-8">
+              {getText('Valid at LaundroWell Garland location only · 2006 W Buckingham Rd, Garland, TX 75042', 'Válido solo en LaundroWell Garland · 2006 W Buckingham Rd, Garland, TX 75042')}
+            </p>
+          </div>
+        </section>
+      )}
+
       {/* Services Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4">
